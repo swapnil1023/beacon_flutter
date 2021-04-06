@@ -1,0 +1,1484 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/async.dart', 'packages/google_maps_flutter_platform_interface/src/types/location.dart', 'packages/beacon_futter/functionalities/location_service.dart', 'packages/flutter_spinkit/src/chasing_dots.dart', 'packages/flutter/src/material/colors.dart', 'packages/location/location.dart', 'packages/circular_countdown_timer/circular_countdown_timer.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/text_field.dart', 'packages/flutter/src/material/input_border.dart', 'packages/flutter/src/material/elevated_button.dart', 'packages/beacon_futter/functionalities/firestore_service.dart', 'packages/fluttertoast/fluttertoast.dart', 'packages/location_platform_interface/location_platform_interface.dart', 'packages/google_maps_flutter_platform_interface/src/types/utils/tile_overlay.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/google_maps_flutter/google_maps_flutter.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__beacon_futter__UI__beacon_carry_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__async$46dart, packages__google_maps_flutter_platform_interface__src__types__location$46dart, packages__beacon_futter__functionalities__location_service$46dart, packages__flutter_spinkit__src__chasing_dots$46dart, packages__flutter__src__material__colors$46dart, packages__location__location$46dart, packages__circular_countdown_timer__circular_countdown_timer$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__text_field$46dart, packages__flutter__src__material__input_border$46dart, packages__flutter__src__material__elevated_button$46dart, packages__beacon_futter__functionalities__firestore_service$46dart, packages__fluttertoast__fluttertoast$46dart, packages__location_platform_interface__location_platform_interface$46dart, packages__google_maps_flutter_platform_interface__src__types__utils__tile_overlay$46dart, packages__flutter__src__painting__alignment$46dart, packages__google_maps_flutter__google_maps_flutter$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const location = packages__google_maps_flutter_platform_interface__src__types__location$46dart.src__types__location;
+  const location_service = packages__beacon_futter__functionalities__location_service$46dart.functionalities__location_service;
+  const chasing_dots = packages__flutter_spinkit__src__chasing_dots$46dart.src__chasing_dots;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const location$ = packages__location__location$46dart.location;
+  const circular_countdown_timer = packages__circular_countdown_timer__circular_countdown_timer$46dart.circular_countdown_timer;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_field = packages__flutter__src__material__text_field$46dart.src__material__text_field;
+  const input_border = packages__flutter__src__material__input_border$46dart.src__material__input_border;
+  const elevated_button = packages__flutter__src__material__elevated_button$46dart.src__material__elevated_button;
+  const firestore_service = packages__beacon_futter__functionalities__firestore_service$46dart.functionalities__firestore_service;
+  const fluttertoast = packages__fluttertoast__fluttertoast$46dart.fluttertoast;
+  const location_platform_interface = packages__location_platform_interface__location_platform_interface$46dart.location_platform_interface;
+  const camera = packages__google_maps_flutter_platform_interface__src__types__utils__tile_overlay$46dart.src__types__camera;
+  const ui$ = packages__google_maps_flutter_platform_interface__src__types__utils__tile_overlay$46dart.src__types__ui;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const google_maps_flutter = packages__google_maps_flutter__google_maps_flutter$46dart.google_maps_flutter;
+  const card = packages__flutter__src__material__card$46dart.src__material__card;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  var beacon_carry = Object.create(dart.library);
+  var $codeUnitAt = dartx.codeUnitAt;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    LatLngL: () => (T.LatLngL = dart.constFn(dart.legacy(location.LatLng)))(),
+    FutureBuilderOfLatLngL: () => (T.FutureBuilderOfLatLngL = dart.constFn(async$.FutureBuilder$(T.LatLngL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    AsyncSnapshotL: () => (T.AsyncSnapshotL = dart.constFn(dart.legacy(async$.AsyncSnapshot)))(),
+    BuildContextLAndAsyncSnapshotLToWidgetL: () => (T.BuildContextLAndAsyncSnapshotLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL(), T.AsyncSnapshotL()])))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    IterableOfintL: () => (T.IterableOfintL = dart.constFn(core.Iterable$(T.intL())))(),
+    intLTointL: () => (T.intLTointL = dart.constFn(dart.fnType(T.intL(), [T.intL()])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    StringLToNull: () => (T.StringLToNull = dart.constFn(dart.fnType(core.Null, [T.StringL()])))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    ObjectL: () => (T.ObjectL = dart.constFn(dart.legacy(core.Object)))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    FutureLOfNull: () => (T.FutureLOfNull = dart.constFn(dart.legacy(T.FutureOfNull())))(),
+    VoidToFutureLOfNull: () => (T.VoidToFutureLOfNull = dart.constFn(dart.fnType(T.FutureLOfNull(), [])))(),
+    LocationDataL: () => (T.LocationDataL = dart.constFn(dart.legacy(location_platform_interface.LocationData)))(),
+    LocationDataLToFutureLOfNull: () => (T.LocationDataLToFutureLOfNull = dart.constFn(dart.fnType(T.FutureLOfNull(), [T.LocationDataL()])))(),
+    GoogleMapControllerL: () => (T.GoogleMapControllerL = dart.constFn(dart.legacy(google_maps_flutter.GoogleMapController)))(),
+    GoogleMapControllerLToNull: () => (T.GoogleMapControllerLToNull = dart.constFn(dart.fnType(core.Null, [T.GoogleMapControllerL()])))(),
+    BuildContextLToWidgetL: () => (T.BuildContextLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "location",
+        [_Location_column]: 26,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 15,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 7,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 7,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 71,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: text.Text.prototype,
+        [Widget__location]: C[17] || CT.C17,
+        [Widget_key]: null,
+        [Text_textHeightBehavior]: null,
+        [Text_textWidthBasis]: null,
+        [Text_semanticsLabel]: null,
+        [Text_maxLines]: null,
+        [Text_textScaleFactor]: null,
+        [Text_overflow]: null,
+        [Text_softWrap]: null,
+        [Text_locale]: null,
+        [Text_textDirection]: null,
+        [Text_textAlign]: null,
+        [Text_strutStyle]: null,
+        [Text_style]: null,
+        [Text_textSpan]: null,
+        [Text_data]: "Duration for carrying"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onChanged",
+        [_Location_column]: 13,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 9,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], T._LocationL());
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 101,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: text.Text.prototype,
+        [Widget__location]: C[30] || CT.C30,
+        [Widget_key]: null,
+        [Text_textHeightBehavior]: null,
+        [Text_textWidthBasis]: null,
+        [Text_semanticsLabel]: null,
+        [Text_maxLines]: null,
+        [Text_textScaleFactor]: null,
+        [Text_overflow]: null,
+        [Text_softWrap]: null,
+        [Text_locale]: null,
+        [Text_textDirection]: null,
+        [Text_textAlign]: null,
+        [Text_strutStyle]: null,
+        [Text_style]: null,
+        [Text_textSpan]: null,
+        [Text_data]: "Start"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 11,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], T._LocationL());
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 90,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40], T._LocationL());
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 107,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: text.Text.prototype,
+        [Widget__location]: C[38] || CT.C38,
+        [Widget_key]: null,
+        [Text_textHeightBehavior]: null,
+        [Text_textWidthBasis]: null,
+        [Text_semanticsLabel]: null,
+        [Text_maxLines]: null,
+        [Text_textScaleFactor]: null,
+        [Text_overflow]: null,
+        [Text_softWrap]: null,
+        [Text_locale]: null,
+        [Text_textDirection]: null,
+        [Text_textAlign]: null,
+        [Text_strutStyle]: null,
+        [Text_style]: null,
+        [Text_textSpan]: null,
+        [Text_data]: "Close"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 11,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44], T._LocationL());
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 103,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 7,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 7,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 7,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 70,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mapType",
+        [_Location_column]: 11,
+        [_Location_line]: 160,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "rotateGesturesEnabled",
+        [_Location_column]: 11,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialCameraPosition",
+        [_Location_column]: 11,
+        [_Location_line]: 162,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "myLocationEnabled",
+        [_Location_column]: 11,
+        [_Location_line]: 163,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "myLocationButtonEnabled",
+        [_Location_column]: 11,
+        [_Location_line]: 164,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "zoomControlsEnabled",
+        [_Location_column]: 11,
+        [_Location_line]: 165,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onMapCreated",
+        [_Location_column]: 11,
+        [_Location_line]: 166,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58], T._LocationL());
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 159,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 10,
+        [EdgeInsets_right]: 10,
+        [EdgeInsets_top]: 10,
+        [EdgeInsets_left]: 10
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 46,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63], T._LocationL());
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[61] || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 179,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.constList([C[66] || CT.C66, C[67] || CT.C67], T._LocationL());
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[65] || CT.C65,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 177,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70], T._LocationL());
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 176,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 43,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.constList([C[73] || CT.C73], T._LocationL());
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[72] || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 192,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 31,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.constList([C[76] || CT.C76, C[77] || CT.C77], T._LocationL());
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[75] || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 43,
+        [_Location_line]: 202,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.constList([C[80] || CT.C80], T._LocationL());
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[79] || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 202,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 202,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 31,
+        [_Location_line]: 203,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84], T._LocationL());
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 201,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 25,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialDuration",
+        [_Location_column]: 25,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 25,
+        [_Location_line]: 210,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 211,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 212,
+        [_Location_file]: null
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "ringColor",
+        [_Location_column]: 25,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "ringGradient",
+        [_Location_column]: 25,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fillColor",
+        [_Location_column]: 25,
+        [_Location_line]: 215,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fillGradient",
+        [_Location_column]: 25,
+        [_Location_line]: 216,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 25,
+        [_Location_line]: 217,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundGradient",
+        [_Location_column]: 25,
+        [_Location_line]: 218,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "strokeWidth",
+        [_Location_column]: 25,
+        [_Location_line]: 219,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "strokeCap",
+        [_Location_column]: 25,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textStyle",
+        [_Location_column]: 25,
+        [_Location_line]: 221,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textFormat",
+        [_Location_column]: 25,
+        [_Location_line]: 225,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isReverse",
+        [_Location_column]: 25,
+        [_Location_line]: 226,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isReverseAnimation",
+        [_Location_column]: 25,
+        [_Location_line]: 227,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isTimerTextShown",
+        [_Location_column]: 25,
+        [_Location_line]: 228,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "autoStart",
+        [_Location_column]: 25,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onStart",
+        [_Location_column]: 25,
+        [_Location_line]: 230,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onComplete",
+        [_Location_column]: 25,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89, C[90] || CT.C90, C[91] || CT.C91, C[92] || CT.C92, C[93] || CT.C93, C[94] || CT.C94, C[95] || CT.C95, C[96] || CT.C96, C[97] || CT.C97, C[98] || CT.C98, C[99] || CT.C99, C[100] || CT.C100, C[101] || CT.C101, C[102] || CT.C102, C[103] || CT.C103, C[104] || CT.C104, C[105] || CT.C105, C[106] || CT.C106, C[107] || CT.C107], T._LocationL());
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 207,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 21,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.constList([C[110] || CT.C110, C[111] || CT.C111], T._LocationL());
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[109] || CT.C109,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 187,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 185,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 186,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.constList([C[114] || CT.C114, C[115] || CT.C115, C[116] || CT.C116], T._LocationL());
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[113] || CT.C113,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 184,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 17,
+        [_Location_line]: 183,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 184,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.constList([C[119] || CT.C119, C[120] || CT.C120], T._LocationL());
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[118] || CT.C118,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 182,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 174,
+        [_Location_file]: null
+      });
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C122() {
+      return C[122] = dart.constList([C[123] || CT.C123, C[124] || CT.C124], T._LocationL());
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[122] || CT.C122,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 173,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "left",
+        [_Location_column]: 11,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottom",
+        [_Location_column]: 11,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C126() {
+      return C[126] = dart.constList([C[127] || CT.C127, C[128] || CT.C128, C[129] || CT.C129], T._LocationL());
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[126] || CT.C126,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 170,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 7,
+        [_Location_line]: 157,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 158,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C[131] = dart.constList([C[132] || CT.C132, C[133] || CT.C133], T._LocationL());
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[131] || CT.C131,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 156,
+        [_Location_file]: "file:///E:/androidcode/beaconFlutter/beacon_futter/lib/UI/beacon_carry.dart"
+      });
+    }
+  }, false);
+  var C = Array(134).fill(void 0);
+  var I = ["package:beacon_futter/UI/beacon_carry.dart"];
+  beacon_carry.BeaconCarry = class BeaconCarry extends framework.StatefulWidget {
+    createState() {
+      return new beacon_carry._BeaconCarryState.new();
+    }
+  };
+  (beacon_carry.BeaconCarry.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    beacon_carry.BeaconCarry.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = beacon_carry.BeaconCarry.prototype;
+  dart.addTypeTests(beacon_carry.BeaconCarry);
+  dart.addTypeCaches(beacon_carry.BeaconCarry);
+  dart.setMethodSignature(beacon_carry.BeaconCarry, () => ({
+    __proto__: dart.getMethods(beacon_carry.BeaconCarry.__proto__),
+    createState: dart.fnType(dart.legacy(beacon_carry._BeaconCarryState), [])
+  }));
+  dart.setLibraryUri(beacon_carry.BeaconCarry, I[0]);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  beacon_carry._BeaconCarryState = class _BeaconCarryState extends framework.State$(dart.legacy(beacon_carry.BeaconCarry)) {
+    build(context) {
+      return new scaffold.Scaffold.new({body: new (T.FutureBuilderOfLatLngL()).new({future: new location_service.LocationService.new().getLocation(), builder: dart.fn((context, snapshot) => {
+            if (dart.test(snapshot.hasData)) {
+              return new beacon_carry.FireMap.new({location: T.LatLngL().as(snapshot.data), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+            } else {
+              return new basic.Center.new({child: new chasing_dots.SpinKitChasingDots.new({color: colors.Colors.blue, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6});
+            }
+          }, T.BuildContextLAndAsyncSnapshotLToWidgetL()), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13});
+    }
+  };
+  (beacon_carry._BeaconCarryState.new = function() {
+    this.timer = null;
+    this.carry = 0;
+    beacon_carry._BeaconCarryState.__proto__.new.call(this);
+    ;
+  }).prototype = beacon_carry._BeaconCarryState.prototype;
+  dart.addTypeTests(beacon_carry._BeaconCarryState);
+  dart.addTypeCaches(beacon_carry._BeaconCarryState);
+  dart.setMethodSignature(beacon_carry._BeaconCarryState, () => ({
+    __proto__: dart.getMethods(beacon_carry._BeaconCarryState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(beacon_carry._BeaconCarryState, I[0]);
+  dart.setFieldSignature(beacon_carry._BeaconCarryState, () => ({
+    __proto__: dart.getFields(beacon_carry._BeaconCarryState.__proto__),
+    timer: dart.fieldType(dart.legacy(core.int)),
+    carry: dart.fieldType(dart.legacy(core.int))
+  }));
+  var location$0 = dart.privateName(beacon_carry, "FireMap.location");
+  beacon_carry.FireMap = class FireMap extends framework.StatefulWidget {
+    get location() {
+      return this[location$0];
+    }
+    set location(value) {
+      super.location = value;
+    }
+    createState() {
+      return new beacon_carry._FireMapState.new();
+    }
+  };
+  (beacon_carry.FireMap.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let location = opts && 'location' in opts ? opts.location : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[location$0] = location;
+    beacon_carry.FireMap.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = beacon_carry.FireMap.prototype;
+  dart.addTypeTests(beacon_carry.FireMap);
+  dart.addTypeCaches(beacon_carry.FireMap);
+  dart.setMethodSignature(beacon_carry.FireMap, () => ({
+    __proto__: dart.getMethods(beacon_carry.FireMap.__proto__),
+    createState: dart.fnType(dart.legacy(beacon_carry._FireMapState), [])
+  }));
+  dart.setLibraryUri(beacon_carry.FireMap, I[0]);
+  dart.setFieldSignature(beacon_carry.FireMap, () => ({
+    __proto__: dart.getFields(beacon_carry.FireMap.__proto__),
+    location: dart.finalFieldType(dart.legacy(location.LatLng))
+  }));
+  var _controller = dart.privateName(beacon_carry, "_controller");
+  var _rnd = dart.privateName(beacon_carry, "_rnd");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var Text_textHeightBehavior = dart.privateName(text, "Text.textHeightBehavior");
+  var Text_textWidthBasis = dart.privateName(text, "Text.textWidthBasis");
+  var Text_semanticsLabel = dart.privateName(text, "Text.semanticsLabel");
+  var Text_maxLines = dart.privateName(text, "Text.maxLines");
+  var Text_textScaleFactor = dart.privateName(text, "Text.textScaleFactor");
+  var Text_overflow = dart.privateName(text, "Text.overflow");
+  var Text_softWrap = dart.privateName(text, "Text.softWrap");
+  var Text_locale = dart.privateName(text, "Text.locale");
+  var Text_textDirection = dart.privateName(text, "Text.textDirection");
+  var Text_textAlign = dart.privateName(text, "Text.textAlign");
+  var Text_strutStyle = dart.privateName(text, "Text.strutStyle");
+  var Text_style = dart.privateName(text, "Text.style");
+  var Text_textSpan = dart.privateName(text, "Text.textSpan");
+  var Text_data = dart.privateName(text, "Text.data");
+  var _buildPopupDialog = dart.privateName(beacon_carry, "_buildPopupDialog");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  beacon_carry._FireMapState = class _FireMapState extends framework.State$(dart.legacy(beacon_carry.FireMap)) {
+    getRandomString(length) {
+      return core.String.fromCharCodes(T.IterableOfintL().generate(length, dart.fn(_ => beacon_carry._FireMapState._chars[$codeUnitAt](this[_rnd].nextInt(beacon_carry._FireMapState._chars.length)), T.intLTointL())));
+    }
+    [_buildPopupDialog](context) {
+      return new dialog.AlertDialog.new({title: C[16] || CT.C16, content: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidgetL().of([new text_field.TextField.new({decoration: new input_decorator.InputDecoration.new({border: new input_border.OutlineInputBorder.new(), hintText: "Enter in minutes"}), onChanged: dart.fn(value => {
+                this.setState(dart.fn(() => {
+                  this.timer = core.int.parse(value);
+                }, T.VoidToNull()));
+              }, T.StringLToNull()), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20})]), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), actions: T.JSArrayOfWidgetL().of([new elevated_button.ElevatedButton.new({onPressed: dart.fn(() => async.async(core.Null, (function*() {
+              yield firestore_service.FirestoreService.new().createToken(this.passkey);
+              this.setState(dart.fn(() => {
+                this.carry = 1;
+                this[_controller].restart({duration: dart.notNull(this.timer) * 60});
+              }, T.VoidToNull()));
+              navigator.Navigator.of(context).pop(T.ObjectL());
+            }).bind(this)), T.VoidToFutureLOfNull()), child: C[29] || CT.C29, $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), new elevated_button.ElevatedButton.new({onPressed: dart.fn(() => {
+              navigator.Navigator.of(context).pop(T.ObjectL());
+            }, T.VoidToNull()), child: C[37] || CT.C37, $creationLocationd_0dea112b090073317d4: C[41] || CT.C41})]), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45});
+    }
+    initState() {
+      this.passkey = this.getRandomString(5);
+      super.initState();
+    }
+    dispose() {
+      let t0;
+      this.stopCarry();
+      t0 = this.locationSubscription;
+      t0 == null ? null : t0.cancel();
+      super.dispose();
+    }
+    stopCarry() {
+      return async.async(dart.void, (function* stopCarry() {
+        this.setState(dart.fn(() => {
+          this.carry = 0;
+          this.timer = 0;
+          this[_controller].restart({duration: 0});
+        }, T.VoidToNull()));
+        yield firestore_service.FirestoreService.new().deleteBeacon(this.passkey);
+        fluttertoast.Fluttertoast.showToast({msg: "Stopped broadcasting location"});
+      }).bind(this));
+    }
+    locationSub() {
+      if (this.locationSubscription != null) this.locationSubscription.cancel();
+      this.locationSubscription = this.location.onLocationChanged.listen(dart.fn(locationData => async.async(core.Null, (function*() {
+        let loc = new location.LatLng.new(locationData.latitude, locationData.longitude);
+        if (this.carry !== 0) firestore_service.FirestoreService.new().updateLocation(this.passkey, loc);
+        core.print("location changed-> ");
+        core.print(locationData);
+      }).bind(this)), T.LocationDataLToFutureLOfNull()));
+    }
+    build(context) {
+      this.locationSub();
+      let campos = new camera.CameraPosition.new({target: this.widget.location, zoom: 15.0});
+      return new basic.Stack.new({alignment: alignment.Alignment.center, children: T.JSArrayOfWidgetL().of([new google_maps_flutter.GoogleMap.new({mapType: ui$.MapType.normal, rotateGesturesEnabled: true, initialCameraPosition: campos, myLocationEnabled: true, myLocationButtonEnabled: true, zoomControlsEnabled: false, onMapCreated: dart.fn(controller => {
+              this.mapController = controller;
+            }, T.GoogleMapControllerLToNull()), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), new basic.Positioned.new({left: 10.0, bottom: 30.0, child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidgetL().of([new card.Card.new({child: new basic.Padding.new({padding: C[59] || CT.C59, child: new text.Text.new("you passkey - " + dart.notNull(this.passkey), {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[64] || CT.C64}), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), new card.Card.new({elevation: 2.0, child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 5, width: dart.notNull(media_query.MediaQuery.of(context).size.width) - 20, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceAround, children: T.JSArrayOfWidgetL().of([this.carry === 0 ? new elevated_button.ElevatedButton.new({child: new text.Text.new("Start carrying", {$creationLocationd_0dea112b090073317d4: C[71] || CT.C71}), onPressed: dart.fn(() => {
+                            dialog.showDialog(dart.dynamic, {context: context, builder: dart.fn(context => T.WidgetL().as(this[_buildPopupDialog](context)), T.BuildContextLToWidgetL())});
+                          }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[74] || CT.C74}) : new elevated_button.ElevatedButton.new({child: new text.Text.new("Stop carrying", {$creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), onPressed: dart.fn(() => async.async(core.Null, (function*() {
+                            yield this.stopCarry();
+                          }).bind(this)), T.VoidToFutureLOfNull()), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}), new circular_countdown_timer.CircularCountDownTimer.new({duration: this.timer != null ? dart.notNull(this.timer) * 60 : 0, initialDuration: 0, controller: this[_controller], width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 3, height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 8, ringColor: colors.Colors.grey._get(300), ringGradient: null, fillColor: colors.Colors.purpleAccent._get(100), fillGradient: null, backgroundColor: colors.Colors.blue, backgroundGradient: null, strokeWidth: 10.0, strokeCap: ui.StrokeCap.round, textStyle: new text_style.TextStyle.new({fontSize: 20.0, color: colors.Colors.white, fontWeight: ui.FontWeight.bold}), textFormat: "s", isReverse: true, isReverseAnimation: true, isTimerTextShown: true, autoStart: false, onStart: dart.fn(() => {
+                            core.print("Countdown Started");
+                            fluttertoast.Fluttertoast.showToast({msg: "Started broadcasting location"});
+                          }, T.VoidToNull()), onComplete: dart.fn(() => async.async(core.Null, (function*() {
+                            yield this.stopCarry();
+                            core.print("Countdown Ended");
+                          }).bind(this)), T.VoidToFutureLOfNull()), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85})]), $creationLocationd_0dea112b090073317d4: C[108] || CT.C108}), $creationLocationd_0dea112b090073317d4: C[112] || CT.C112}), $creationLocationd_0dea112b090073317d4: C[117] || CT.C117})]), $creationLocationd_0dea112b090073317d4: C[121] || CT.C121}), $creationLocationd_0dea112b090073317d4: C[125] || CT.C125})]), $creationLocationd_0dea112b090073317d4: C[130] || CT.C130});
+    }
+  };
+  (beacon_carry._FireMapState.new = function() {
+    this.carry = 0;
+    this.timer = 0;
+    this.passkey = null;
+    this.mapController = null;
+    this.locationSubscription = null;
+    this.location = location$.Location.new();
+    this[_controller] = new circular_countdown_timer.CountDownController.new();
+    this[_rnd] = math.Random.new();
+    beacon_carry._FireMapState.__proto__.new.call(this);
+    ;
+  }).prototype = beacon_carry._FireMapState.prototype;
+  dart.addTypeTests(beacon_carry._FireMapState);
+  dart.addTypeCaches(beacon_carry._FireMapState);
+  dart.setMethodSignature(beacon_carry._FireMapState, () => ({
+    __proto__: dart.getMethods(beacon_carry._FireMapState.__proto__),
+    getRandomString: dart.fnType(dart.legacy(core.String), [dart.legacy(core.int)]),
+    [_buildPopupDialog]: dart.fnType(dart.dynamic, [dart.legacy(framework.BuildContext)]),
+    stopCarry: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    locationSub: dart.fnType(dart.void, []),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(beacon_carry._FireMapState, I[0]);
+  dart.setFieldSignature(beacon_carry._FireMapState, () => ({
+    __proto__: dart.getFields(beacon_carry._FireMapState.__proto__),
+    carry: dart.fieldType(dart.legacy(core.int)),
+    timer: dart.fieldType(dart.legacy(core.int)),
+    passkey: dart.fieldType(dart.legacy(core.String)),
+    mapController: dart.fieldType(dart.legacy(google_maps_flutter.GoogleMapController)),
+    locationSubscription: dart.fieldType(dart.legacy(async.StreamSubscription)),
+    location: dart.fieldType(dart.legacy(location$.Location)),
+    [_controller]: dart.fieldType(dart.legacy(circular_countdown_timer.CountDownController)),
+    [_rnd]: dart.fieldType(dart.legacy(math.Random))
+  }));
+  dart.defineLazy(beacon_carry._FireMapState, {
+    /*beacon_carry._FireMapState._chars*/get _chars() {
+      return "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
+    }
+  }, true);
+  dart.trackLibraries("packages/beacon_futter/UI/beacon_carry.dart", {
+    "package:beacon_futter/UI/beacon_carry.dart": beacon_carry
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["beacon_carry.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAaqC;IAAmB;;;;;;EACxD;;;;;;;;;;;;;;UAO4B;AACxB,YAAO,kCACG,8CACA,AAAkB,mEACjB,SAAc,SAAuB;AAC5C,0BAAI,AAAS,QAAD;AACV,oBAAO,wDAAkB,AAAS,QAAD;;AAEjC,oBAAO,8BACE,gDACS;;;IAM1B;;;IApBI;IACA,aAAQ;;;EAoBd;;;;;;;;;;;;;;;IAGe;;;;;;;AAGkB;IAAe;;;QAFjC;QAAU;;;AAAa,wDAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;oBAiBxB;AAAW,YAAO,2BAC9B,4BACP,MAAM,EACN,QAAC,KAAM,AAAO,+CACZ,AAAK,mBAAQ,AAAO;IAGzB;wBAE0B;AAC7B,YAAO,8DAEQ,oCACgB,2CACY,yCACrB,yBAChB,0CACc,iDACF,qDACE,iCAED,QAAC;AAGR,gBAFF,cAAS;AACiB,kBAAxB,aAAY,eAAM,KAAK;;sKAMhB,yBACf,mDACa;AAGoC,cAA7C,MAAM,AAAmB,qDAAY;AAInC,cAHF,cAAS;AACE,gBAAT,aAAQ;AACiC,gBAAzC,AAAY,qCAAwB,aAAN,cAAQ;;AAEb,cAAjB,AAAY,uBAAT,OAAO;YACrB,6HAGH,mDACa;AACkB,cAAjB,AAAY,uBAAT,OAAO;;IAM9B;;AAI8B,MAA5B,eAAU,qBAAgB;AACT,MAAX;IACR;;;AAIa,MAAX;AAC8B,WAA9B;0BAAsB;AACP,MAAT;IACR;;AAEsB;AAKlB,QAJF,cAAS;AACE,UAAT,aAAQ;AACC,UAAT,aAAQ;AACwB,UAAhC,AAAY,qCAAkB;;AAEc,QAA9C,MAAM,AAAmB,sDAAa;AAGrC,QAFY,0CACN;MAET;;;AAGE,UAAI,AAAqB,mCAAS,AAAqB,AAAQ;AAQ7D,MANF,4BACI,AAAS,AAAkB,uCAAO,QAAC;AAC9B,kBAAU,wBAAO,AAAa,YAAD,WAAW,AAAa,YAAD;AAC3D,YAAI,AAAM,eAAG,GAAG,AAAmB,AAA4B,wDAAb,cAAS,GAAG;AAClC,QAA5B,WAAM;AACa,QAAnB,WAAM,YAAY;MACnB;IACH;UAG0B;AACX,MAAb;AAEe,mBAAS,uCAAuB,AAAO,4BAAgB;AAEtE,YAAO,iCACgB,sCACX,yBACR,gDACmB,2CACM,6BACA,MAAM,qBACV,+BACM,2BACJ,qBACP,QAAC;AACa,cAA1B,qBAAgB,UAAU;2GAG9B,gCACQ,cACE,aACD,0CACkC,yCAC7B,yBACR,0BACW,wDAEF,kBAAK,AAAiB,gCAAE,uBACpB,0CAAiC,uMAE9C,8BACa,YACJ,qCACsC,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,UACJ,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe,WACpC,sCACgC,8CAC3B,yBACP,AAAM,eAAG,IACJ,+CACS,kBAAK,yFACD;AAKR,4BAJD,0CACW,OAAO,WACP,QAAc,0BACnB,wBAAkB,OAAO;0GAInC,+CACS,kBAAK,wFACD;AACQ,4BAAjB,MAAM;0BACP,qGAET,mEACa,AAAM,qBAAiB,aAAN,cAAQ,KAAK,oBACxB,eACL,0BAC6B,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe,WACA,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,cAC3B,AAAI,wBAAC,oBACT,iBACI,AAAY,gCAAC,oBACjB,uBACU,wCACJ,mBACP,iBACQ,+BACV,wCACG,aACI,iCACS,kDAEhB,0BACS,wBACF,iBACP,gBACF;AACmB,4BAA1B,WAAM;AAGL,4BAFY,0CACN;0DAGG;AACO,4BAAjB,MAAM;AACkB,4BAAxB,WAAM;0BACP;IAWvB;;;IAzMI,aAAQ;IAAG,aAAQ;IAChB;IACa;IAED;IACV,gBAAW;IACA,oBAAc;IAG3B,aAAO;;;EAiMhB;;;;;;;;;;;;;;;;;;;;;;;;MAnMe,iCAAM","file":"../../../../../packages/beacon_futter/UI/beacon_carry.dart.lib.js"}');
+  // Exports:
+  return {
+    UI__beacon_carry: beacon_carry
+  };
+}));
+
+//# sourceMappingURL=beacon_carry.dart.lib.js.map

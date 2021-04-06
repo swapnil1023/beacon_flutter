@@ -1,0 +1,949 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/circular_countdown_timer/custom_timer_painter.dart', 'packages/flutter/src/painting/fractional_offset.dart', 'packages/flutter/src/material/colors.dart'], (function load__packages__circular_countdown_timer__circular_countdown_timer_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__circular_countdown_timer__custom_timer_painter$46dart, packages__flutter__src__painting__fractional_offset$46dart, packages__flutter__src__material__colors$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const custom_timer_painter = packages__circular_countdown_timer__custom_timer_painter$46dart.custom_timer_painter;
+  const fractional_offset = packages__flutter__src__painting__fractional_offset$46dart.src__painting__fractional_offset;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  var circular_countdown_timer = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $padLeft = dartx.padLeft;
+  var $modulo = dartx['%'];
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    AnimationStatusTovoid: () => (T.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation.AnimationStatus])))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndWidgetNToAlign: () => (T.BuildContextAndWidgetNToAlign = dart.constFn(dart.fnType(basic.Align, [framework.BuildContext, T.WidgetN()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: ui.StrokeCap.prototype,
+        [_name]: "StrokeCap.butt",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name$]: "AnimationStatus.forward",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name$]: "AnimationStatus.reverse",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name$]: "AnimationStatus.dismissed",
+        index: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name$]: "AnimationStatus.completed",
+        index: 3
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 25,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 257,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 256,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 31,
+        [_Location_line]: 274,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 31,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14], T._LocationL());
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 273,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 29,
+        [_Location_line]: 272,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 273,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18], T._LocationL());
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 271,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([], T._LocationL());
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 282,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 255,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 254,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "aspectRatio",
+        [_Location_column]: 17,
+        [_Location_line]: 253,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 254,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 252,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 252,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([C[30] || CT.C30], T._LocationL());
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 251,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 11,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 250,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 248,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 246,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 247,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 248,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38, C[39] || CT.C39], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 245,
+        [_Location_file]: "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart"
+      });
+    }
+  }, false);
+  var C = Array(40).fill(void 0);
+  var I = [
+    "file:///C:/Users/swapn/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.0/lib/circular_countdown_timer.dart",
+    "package:circular_countdown_timer/circular_countdown_timer.dart"
+  ];
+  var key$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.key");
+  var fillColor$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.fillColor");
+  var fillGradient$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.fillGradient");
+  var ringColor$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.ringColor");
+  var ringGradient$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.ringGradient");
+  var backgroundColor$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.backgroundColor");
+  var backgroundGradient$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.backgroundGradient");
+  var onComplete$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.onComplete");
+  var onStart$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.onStart");
+  var duration$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.duration");
+  var initialDuration$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.initialDuration");
+  var width$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.width");
+  var height$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.height");
+  var strokeWidth$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.strokeWidth");
+  var strokeCap$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.strokeCap");
+  var textStyle$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.textStyle");
+  var textFormat$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.textFormat");
+  var isReverse$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.isReverse");
+  var isReverseAnimation$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.isReverseAnimation");
+  var isTimerTextShown$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.isTimerTextShown");
+  var controller$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.controller");
+  var autoStart$ = dart.privateName(circular_countdown_timer, "CircularCountDownTimer.autoStart");
+  var _name = dart.privateName(ui, "_name");
+  circular_countdown_timer.CircularCountDownTimer = class CircularCountDownTimer extends framework.StatefulWidget {
+    get key() {
+      return this[key$];
+    }
+    set key(value) {
+      super.key = value;
+    }
+    get fillColor() {
+      return this[fillColor$];
+    }
+    set fillColor(value) {
+      super.fillColor = value;
+    }
+    get fillGradient() {
+      return this[fillGradient$];
+    }
+    set fillGradient(value) {
+      super.fillGradient = value;
+    }
+    get ringColor() {
+      return this[ringColor$];
+    }
+    set ringColor(value) {
+      super.ringColor = value;
+    }
+    get ringGradient() {
+      return this[ringGradient$];
+    }
+    set ringGradient(value) {
+      super.ringGradient = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get backgroundGradient() {
+      return this[backgroundGradient$];
+    }
+    set backgroundGradient(value) {
+      super.backgroundGradient = value;
+    }
+    get onComplete() {
+      return this[onComplete$];
+    }
+    set onComplete(value) {
+      super.onComplete = value;
+    }
+    get onStart() {
+      return this[onStart$];
+    }
+    set onStart(value) {
+      super.onStart = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get initialDuration() {
+      return this[initialDuration$];
+    }
+    set initialDuration(value) {
+      super.initialDuration = value;
+    }
+    get width() {
+      return this[width$];
+    }
+    set width(value) {
+      super.width = value;
+    }
+    get height() {
+      return this[height$];
+    }
+    set height(value) {
+      super.height = value;
+    }
+    get strokeWidth() {
+      return this[strokeWidth$];
+    }
+    set strokeWidth(value) {
+      super.strokeWidth = value;
+    }
+    get strokeCap() {
+      return this[strokeCap$];
+    }
+    set strokeCap(value) {
+      super.strokeCap = value;
+    }
+    get textStyle() {
+      return this[textStyle$];
+    }
+    set textStyle(value) {
+      super.textStyle = value;
+    }
+    get textFormat() {
+      return this[textFormat$];
+    }
+    set textFormat(value) {
+      super.textFormat = value;
+    }
+    get isReverse() {
+      return this[isReverse$];
+    }
+    set isReverse(value) {
+      super.isReverse = value;
+    }
+    get isReverseAnimation() {
+      return this[isReverseAnimation$];
+    }
+    set isReverseAnimation(value) {
+      super.isReverseAnimation = value;
+    }
+    get isTimerTextShown() {
+      return this[isTimerTextShown$];
+    }
+    set isTimerTextShown(value) {
+      super.isTimerTextShown = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get autoStart() {
+      return this[autoStart$];
+    }
+    set autoStart(value) {
+      super.autoStart = value;
+    }
+    createState() {
+      return new circular_countdown_timer.CircularCountDownTimerState.new();
+    }
+  };
+  (circular_countdown_timer.CircularCountDownTimer.new = function(opts) {
+    let width = opts && 'width' in opts ? opts.width : null;
+    if (width == null) dart.nullFailed(I[0], 75, 22, "width");
+    let height = opts && 'height' in opts ? opts.height : null;
+    if (height == null) dart.nullFailed(I[0], 76, 21, "height");
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    if (duration == null) dart.nullFailed(I[0], 77, 21, "duration");
+    let fillColor = opts && 'fillColor' in opts ? opts.fillColor : null;
+    if (fillColor == null) dart.nullFailed(I[0], 78, 21, "fillColor");
+    let ringColor = opts && 'ringColor' in opts ? opts.ringColor : null;
+    if (ringColor == null) dart.nullFailed(I[0], 79, 21, "ringColor");
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let fillGradient = opts && 'fillGradient' in opts ? opts.fillGradient : null;
+    let ringGradient = opts && 'ringGradient' in opts ? opts.ringGradient : null;
+    let backgroundGradient = opts && 'backgroundGradient' in opts ? opts.backgroundGradient : null;
+    let initialDuration = opts && 'initialDuration' in opts ? opts.initialDuration : 0;
+    if (initialDuration == null) dart.nullFailed(I[0], 84, 12, "initialDuration");
+    let isReverse = opts && 'isReverse' in opts ? opts.isReverse : false;
+    if (isReverse == null) dart.nullFailed(I[0], 85, 12, "isReverse");
+    let isReverseAnimation = opts && 'isReverseAnimation' in opts ? opts.isReverseAnimation : false;
+    if (isReverseAnimation == null) dart.nullFailed(I[0], 86, 12, "isReverseAnimation");
+    let onComplete = opts && 'onComplete' in opts ? opts.onComplete : null;
+    let onStart = opts && 'onStart' in opts ? opts.onStart : null;
+    let strokeWidth = opts && 'strokeWidth' in opts ? opts.strokeWidth : 5;
+    if (strokeWidth == null) dart.nullFailed(I[0], 89, 12, "strokeWidth");
+    let strokeCap = opts && 'strokeCap' in opts ? opts.strokeCap : C[0] || CT.C0;
+    if (strokeCap == null) dart.nullFailed(I[0], 90, 12, "strokeCap");
+    let textStyle = opts && 'textStyle' in opts ? opts.textStyle : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let isTimerTextShown = opts && 'isTimerTextShown' in opts ? opts.isTimerTextShown : true;
+    if (isTimerTextShown == null) dart.nullFailed(I[0], 93, 12, "isTimerTextShown");
+    let autoStart = opts && 'autoStart' in opts ? opts.autoStart : true;
+    if (autoStart == null) dart.nullFailed(I[0], 94, 12, "autoStart");
+    let textFormat = opts && 'textFormat' in opts ? opts.textFormat : null;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[width$] = width;
+    this[height$] = height;
+    this[duration$] = duration;
+    this[fillColor$] = fillColor;
+    this[ringColor$] = ringColor;
+    this[backgroundColor$] = backgroundColor;
+    this[fillGradient$] = fillGradient;
+    this[ringGradient$] = ringGradient;
+    this[backgroundGradient$] = backgroundGradient;
+    this[initialDuration$] = initialDuration;
+    this[isReverse$] = isReverse;
+    this[isReverseAnimation$] = isReverseAnimation;
+    this[onComplete$] = onComplete;
+    this[onStart$] = onStart;
+    this[strokeWidth$] = strokeWidth;
+    this[strokeCap$] = strokeCap;
+    this[textStyle$] = textStyle;
+    this[key$] = key;
+    this[isTimerTextShown$] = isTimerTextShown;
+    this[autoStart$] = autoStart;
+    this[textFormat$] = textFormat;
+    this[controller$] = controller;
+    if (!(width != null)) dart.assertFailed(null, I[0], 97, 16, "width != null");
+    if (!(height != null)) dart.assertFailed(null, I[0], 98, 16, "height != null");
+    if (!(duration != null)) dart.assertFailed(null, I[0], 99, 16, "duration != null");
+    if (!(dart.notNull(initialDuration) <= dart.notNull(duration))) dart.assertFailed(null, I[0], 100, 16, "initialDuration <= duration");
+    if (!(fillColor != null)) dart.assertFailed(null, I[0], 101, 16, "fillColor != null");
+    if (!(ringColor != null)) dart.assertFailed(null, I[0], 102, 16, "ringColor != null");
+    circular_countdown_timer.CircularCountDownTimer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = circular_countdown_timer.CircularCountDownTimer.prototype;
+  dart.addTypeTests(circular_countdown_timer.CircularCountDownTimer);
+  dart.addTypeCaches(circular_countdown_timer.CircularCountDownTimer);
+  dart.setMethodSignature(circular_countdown_timer.CircularCountDownTimer, () => ({
+    __proto__: dart.getMethods(circular_countdown_timer.CircularCountDownTimer.__proto__),
+    createState: dart.fnType(circular_countdown_timer.CircularCountDownTimerState, [])
+  }));
+  dart.setLibraryUri(circular_countdown_timer.CircularCountDownTimer, I[1]);
+  dart.setFieldSignature(circular_countdown_timer.CircularCountDownTimer, () => ({
+    __proto__: dart.getFields(circular_countdown_timer.CircularCountDownTimer.__proto__),
+    key: dart.finalFieldType(dart.nullable(key.Key)),
+    fillColor: dart.finalFieldType(ui.Color),
+    fillGradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    ringColor: dart.finalFieldType(ui.Color),
+    ringGradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    backgroundGradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    onComplete: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onStart: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    duration: dart.finalFieldType(core.int),
+    initialDuration: dart.finalFieldType(core.int),
+    width: dart.finalFieldType(core.double),
+    height: dart.finalFieldType(core.double),
+    strokeWidth: dart.finalFieldType(core.double),
+    strokeCap: dart.finalFieldType(ui.StrokeCap),
+    textStyle: dart.finalFieldType(dart.nullable(text_style.TextStyle)),
+    textFormat: dart.finalFieldType(dart.nullable(core.String)),
+    isReverse: dart.finalFieldType(core.bool),
+    isReverseAnimation: dart.finalFieldType(core.bool),
+    isTimerTextShown: dart.finalFieldType(core.bool),
+    controller: dart.finalFieldType(dart.nullable(circular_countdown_timer.CountDownController)),
+    autoStart: dart.finalFieldType(core.bool)
+  }));
+  var _controller = dart.privateName(circular_countdown_timer, "_controller");
+  var _countDownAnimation = dart.privateName(circular_countdown_timer, "_countDownAnimation");
+  var _getTime = dart.privateName(circular_countdown_timer, "_getTime");
+  var _setAnimation = dart.privateName(circular_countdown_timer, "_setAnimation");
+  var _setAnimationDirection = dart.privateName(circular_countdown_timer, "_setAnimationDirection");
+  var _state = dart.privateName(circular_countdown_timer, "_state");
+  var _isReverse = dart.privateName(circular_countdown_timer, "_isReverse");
+  var _initialDuration = dart.privateName(circular_countdown_timer, "_initialDuration");
+  var _duration = dart.privateName(circular_countdown_timer, "_duration");
+  var _setController = dart.privateName(circular_countdown_timer, "_setController");
+  var _defaultFormat = dart.privateName(circular_countdown_timer, "_defaultFormat");
+  var _onStart = dart.privateName(circular_countdown_timer, "_onStart");
+  var _onComplete = dart.privateName(circular_countdown_timer, "_onComplete");
+  var _name$ = dart.privateName(animation, "_name");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(circular_countdown_timer.CircularCountDownTimer) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(circular_countdown_timer.CircularCountDownTimer)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(circular_countdown_timer.CircularCountDownTimer));
+  circular_countdown_timer.CircularCountDownTimerState = class CircularCountDownTimerState extends State_TickerProviderStateMixin$36 {
+    get time() {
+      if (dart.test(this.widget.isReverse) && dart.test(dart.nullCheck(this[_controller]).isDismissed)) {
+        if (this.widget.textFormat === "mm:ss") {
+          return "00:00";
+        } else if (this.widget.textFormat === "ss") {
+          return "00";
+        } else if (this.widget.textFormat === "s") {
+          return "0";
+        } else {
+          return "00:00:00";
+        }
+      } else {
+        let duration = dart.nullCheck(dart.nullCheck(this[_controller]).duration)['*'](dart.nullCheck(this[_controller]).value);
+        return this[_getTime](duration);
+      }
+    }
+    [_setAnimation]() {
+      if (dart.test(this.widget.autoStart)) {
+        if (dart.test(this.widget.isReverse)) {
+          dart.nullCheck(this[_controller]).reverse({from: 1.0});
+        } else {
+          dart.nullCheck(this[_controller]).forward();
+        }
+      }
+    }
+    [_setAnimationDirection]() {
+      if (!dart.test(this.widget.isReverse) && dart.test(this.widget.isReverseAnimation) || dart.test(this.widget.isReverse) && !dart.test(this.widget.isReverseAnimation)) {
+        this[_countDownAnimation] = new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}).animate(dart.nullCheck(this[_controller]));
+      }
+    }
+    [_setController]() {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4;
+      t0 = this.widget.controller;
+      t0 == null ? null : t0[_state] = this;
+      t0$ = this.widget.controller;
+      t0$ == null ? null : t0$[_isReverse] = this.widget.isReverse;
+      t0$0 = this.widget.controller;
+      t0$0 == null ? null : t0$0[_initialDuration] = this.widget.initialDuration;
+      t0$1 = this.widget.controller;
+      t0$1 == null ? null : t0$1[_duration] = this.widget.duration;
+      if (dart.notNull(this.widget.initialDuration) > 0 && dart.test(this.widget.autoStart)) {
+        if (dart.test(this.widget.isReverse)) {
+          t0$2 = this[_controller];
+          t0$2 == null ? null : t0$2.value = 1 - dart.notNull(this.widget.initialDuration) / dart.notNull(this.widget.duration);
+        } else {
+          t0$3 = this[_controller];
+          t0$3 == null ? null : t0$3.value = dart.notNull(this.widget.initialDuration) / dart.notNull(this.widget.duration);
+        }
+        t0$4 = this.widget.controller;
+        t0$4 == null ? null : t0$4.start();
+      }
+    }
+    [_getTime](duration) {
+      if (duration == null) dart.nullFailed(I[0], 166, 28, "duration");
+      if (this.widget.textFormat === "HH:mm:ss") {
+        return dart.toString(duration.inHours)[$padLeft](2, "0") + ":" + duration.inMinutes[$modulo](60)[$toString]()[$padLeft](2, "0") + ":" + duration.inSeconds[$modulo](60)[$toString]()[$padLeft](2, "0");
+      } else if (this.widget.textFormat === "mm:ss") {
+        return duration.inMinutes[$modulo](60)[$toString]()[$padLeft](2, "0") + ":" + duration.inSeconds[$modulo](60)[$toString]()[$padLeft](2, "0");
+      } else if (this.widget.textFormat === "ss") {
+        return dart.toString(duration.inSeconds)[$padLeft](2, "0");
+      } else if (this.widget.textFormat === "s") {
+        return dart.str(duration.inSeconds);
+      } else {
+        return core.String.as(this[_defaultFormat](duration));
+      }
+    }
+    [_defaultFormat](duration) {
+      if (duration == null) dart.nullFailed(I[0], 188, 27, "duration");
+      if (duration.inHours !== 0) {
+        return dart.toString(duration.inHours)[$padLeft](2, "0") + ":" + duration.inMinutes[$modulo](60)[$toString]()[$padLeft](2, "0") + ":" + duration.inSeconds[$modulo](60)[$toString]()[$padLeft](2, "0");
+      } else if (duration.inMinutes !== 0) {
+        return duration.inMinutes[$modulo](60)[$toString]()[$padLeft](2, "0") + ":" + duration.inSeconds[$modulo](60)[$toString]()[$padLeft](2, "0");
+      } else {
+        return dart.str(duration.inSeconds[$modulo](60));
+      }
+    }
+    [_onStart]() {
+      if (this.widget.onStart != null) dart.nullCheck(this.widget.onStart)();
+    }
+    [_onComplete]() {
+      if (this.widget.onComplete != null) dart.nullCheck(this.widget.onComplete)();
+    }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({vsync: this, duration: new core.Duration.new({seconds: this.widget.duration})});
+      dart.nullCheck(this[_controller]).addStatusListener(dart.fn(status => {
+        if (status == null) dart.nullFailed(I[0], 214, 37, "status");
+        switch (status) {
+          case C[1] || CT.C1:
+          {
+            this[_onStart]();
+            break;
+          }
+          case C[2] || CT.C2:
+          {
+            this[_onStart]();
+            break;
+          }
+          case C[3] || CT.C3:
+          {
+            this[_onComplete]();
+            break;
+          }
+          case C[4] || CT.C4:
+          {
+            if (!dart.test(this.widget.isReverse)) this[_onComplete]();
+            break;
+          }
+          default:
+        }
+      }, T.AnimationStatusTovoid()));
+      this[_setAnimation]();
+      this[_setAnimationDirection]();
+      this[_setController]();
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 244, 29, "context");
+      return new container.Container.new({width: this.widget.width, height: this.widget.height, child: new transitions.AnimatedBuilder.new({animation: dart.nullCheck(this[_controller]), builder: dart.fn((context, child) => {
+            let t0, t0$;
+            if (context == null) dart.nullFailed(I[0], 250, 21, "context");
+            return new basic.Align.new({child: new basic.AspectRatio.new({aspectRatio: 1.0, child: new basic.Stack.new({children: T.JSArrayOfWidget().of([new basic.Positioned.fill({child: new basic.CustomPaint.new({painter: new custom_timer_painter.CustomTimerPainter.new({animation: (t0 = this[_countDownAnimation], t0 == null ? this[_controller] : t0), fillColor: this.widget.fillColor, fillGradient: this.widget.fillGradient, ringColor: this.widget.ringColor, ringGradient: this.widget.ringGradient, strokeWidth: this.widget.strokeWidth, strokeCap: this.widget.strokeCap, backgroundColor: this.widget.backgroundColor, backgroundGradient: this.widget.backgroundGradient}), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), dart.test(this.widget.isTimerTextShown) ? new basic.Align.new({alignment: fractional_offset.FractionalOffset.center, child: new text.Text.new(this.time, {style: (t0$ = this.widget.textStyle, t0$ == null ? new text_style.TextStyle.new({fontSize: 16.0, color: colors.Colors.black}) : t0$), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}) : new container.Container.new({$creationLocationd_0dea112b090073317d4: C[19] || CT.C19})]), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[28] || CT.C28});
+          }, T.BuildContextAndWidgetNToAlign()), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+    }
+    dispose() {
+      dart.nullCheck(this[_controller]).stop();
+      dart.nullCheck(this[_controller]).dispose();
+      super.dispose();
+    }
+  };
+  (circular_countdown_timer.CircularCountDownTimerState.new = function() {
+    this[_controller] = null;
+    this[_countDownAnimation] = null;
+    circular_countdown_timer.CircularCountDownTimerState.__proto__.new.call(this);
+    ;
+  }).prototype = circular_countdown_timer.CircularCountDownTimerState.prototype;
+  dart.addTypeTests(circular_countdown_timer.CircularCountDownTimerState);
+  dart.addTypeCaches(circular_countdown_timer.CircularCountDownTimerState);
+  dart.setMethodSignature(circular_countdown_timer.CircularCountDownTimerState, () => ({
+    __proto__: dart.getMethods(circular_countdown_timer.CircularCountDownTimerState.__proto__),
+    [_setAnimation]: dart.fnType(dart.void, []),
+    [_setAnimationDirection]: dart.fnType(dart.void, []),
+    [_setController]: dart.fnType(dart.void, []),
+    [_getTime]: dart.fnType(core.String, [core.Duration]),
+    [_defaultFormat]: dart.fnType(dart.dynamic, [core.Duration]),
+    [_onStart]: dart.fnType(dart.void, []),
+    [_onComplete]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(circular_countdown_timer.CircularCountDownTimerState, () => ({
+    __proto__: dart.getGetters(circular_countdown_timer.CircularCountDownTimerState.__proto__),
+    time: core.String
+  }));
+  dart.setLibraryUri(circular_countdown_timer.CircularCountDownTimerState, I[1]);
+  dart.setFieldSignature(circular_countdown_timer.CircularCountDownTimerState, () => ({
+    __proto__: dart.getFields(circular_countdown_timer.CircularCountDownTimerState.__proto__),
+    [_controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [_countDownAnimation]: dart.fieldType(dart.nullable(animation.Animation$(core.double)))
+  }));
+  var __CountDownController__state = dart.privateName(circular_countdown_timer, "_#CountDownController#_state");
+  var __CountDownController__state_isSet = dart.privateName(circular_countdown_timer, "_#CountDownController#_state#isSet");
+  var __CountDownController__isReverse = dart.privateName(circular_countdown_timer, "_#CountDownController#_isReverse");
+  var __CountDownController__isReverse_isSet = dart.privateName(circular_countdown_timer, "_#CountDownController#_isReverse#isSet");
+  circular_countdown_timer.CountDownController = class CountDownController extends core.Object {
+    get [_state]() {
+      let t0;
+      return dart.test(this[__CountDownController__state_isSet]) ? (t0 = this[__CountDownController__state], t0) : dart.throw(new _internal.LateError.fieldNI("_state"));
+    }
+    set [_state](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 301, 36, "null");
+      this[__CountDownController__state_isSet] = true;
+      this[__CountDownController__state] = t0;
+    }
+    get [_isReverse]() {
+      let t1;
+      return dart.test(this[__CountDownController__isReverse_isSet]) ? (t1 = this[__CountDownController__isReverse], t1) : dart.throw(new _internal.LateError.fieldNI("_isReverse"));
+    }
+    set [_isReverse](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 302, 13, "null");
+      this[__CountDownController__isReverse_isSet] = true;
+      this[__CountDownController__isReverse] = t1;
+    }
+    start() {
+      let t2, t2$;
+      if (dart.test(this[_isReverse])) {
+        t2 = this[_state][_controller];
+        t2 == null ? null : t2.reverse({from: this[_initialDuration] === 0 ? 1.0 : 1 - dart.nullCheck(this[_initialDuration]) / dart.nullCheck(this[_duration])});
+      } else {
+        t2$ = this[_state][_controller];
+        t2$ == null ? null : t2$.forward({from: this[_initialDuration] === 0 ? 0.0 : dart.nullCheck(this[_initialDuration]) / dart.nullCheck(this[_duration])});
+      }
+    }
+    pause() {
+      let t2;
+      t2 = this[_state][_controller];
+      t2 == null ? null : t2.stop({canceled: false});
+    }
+    resume() {
+      let t2, t2$;
+      if (dart.test(this[_isReverse])) {
+        t2 = this[_state][_controller];
+        t2 == null ? null : t2.reverse({from: dart.nullCheck(this[_state][_controller]).value});
+      } else {
+        t2$ = this[_state][_controller];
+        t2$ == null ? null : t2$.forward({from: dart.nullCheck(this[_state][_controller]).value});
+      }
+    }
+    restart(opts) {
+      let t2, t2$, t2$0;
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      dart.nullCheck(this[_state][_controller]).duration = new core.Duration.new({seconds: (t2 = duration, t2 == null ? dart.nullCheck(dart.nullCheck(this[_state][_controller]).duration).inSeconds : t2)});
+      if (dart.test(this[_isReverse])) {
+        t2$ = this[_state][_controller];
+        t2$ == null ? null : t2$.reverse({from: 1.0});
+      } else {
+        t2$0 = this[_state][_controller];
+        t2$0 == null ? null : t2$0.forward({from: 0.0});
+      }
+    }
+    getTime() {
+      return this[_state][_getTime](dart.nullCheck(dart.nullCheck(this[_state][_controller]).duration)['*'](dart.nullCheck(this[_state][_controller]).value));
+    }
+  };
+  (circular_countdown_timer.CountDownController.new = function() {
+    this[__CountDownController__state] = null;
+    this[__CountDownController__state_isSet] = false;
+    this[__CountDownController__isReverse] = null;
+    this[__CountDownController__isReverse_isSet] = false;
+    this[_initialDuration] = null;
+    this[_duration] = null;
+    ;
+  }).prototype = circular_countdown_timer.CountDownController.prototype;
+  dart.addTypeTests(circular_countdown_timer.CountDownController);
+  dart.addTypeCaches(circular_countdown_timer.CountDownController);
+  dart.setMethodSignature(circular_countdown_timer.CountDownController, () => ({
+    __proto__: dart.getMethods(circular_countdown_timer.CountDownController.__proto__),
+    start: dart.fnType(dart.void, []),
+    pause: dart.fnType(dart.void, []),
+    resume: dart.fnType(dart.void, []),
+    restart: dart.fnType(dart.void, [], {duration: dart.nullable(core.int)}, {}),
+    getTime: dart.fnType(core.String, [])
+  }));
+  dart.setGetterSignature(circular_countdown_timer.CountDownController, () => ({
+    __proto__: dart.getGetters(circular_countdown_timer.CountDownController.__proto__),
+    [_state]: circular_countdown_timer.CircularCountDownTimerState,
+    [_isReverse]: core.bool
+  }));
+  dart.setSetterSignature(circular_countdown_timer.CountDownController, () => ({
+    __proto__: dart.getSetters(circular_countdown_timer.CountDownController.__proto__),
+    [_state]: circular_countdown_timer.CircularCountDownTimerState,
+    [_isReverse]: core.bool
+  }));
+  dart.setLibraryUri(circular_countdown_timer.CountDownController, I[1]);
+  dart.setFieldSignature(circular_countdown_timer.CountDownController, () => ({
+    __proto__: dart.getFields(circular_countdown_timer.CountDownController.__proto__),
+    [__CountDownController__state]: dart.fieldType(dart.nullable(circular_countdown_timer.CircularCountDownTimerState)),
+    [__CountDownController__state_isSet]: dart.fieldType(core.bool),
+    [__CountDownController__isReverse]: dart.fieldType(dart.nullable(core.bool)),
+    [__CountDownController__isReverse_isSet]: dart.fieldType(core.bool),
+    [_initialDuration]: dart.fieldType(dart.nullable(core.int)),
+    [_duration]: dart.fieldType(dart.nullable(core.int))
+  }));
+  circular_countdown_timer.CountdownTextFormat = class CountdownTextFormat extends core.Object {};
+  (circular_countdown_timer.CountdownTextFormat.new = function() {
+    ;
+  }).prototype = circular_countdown_timer.CountdownTextFormat.prototype;
+  dart.addTypeTests(circular_countdown_timer.CountdownTextFormat);
+  dart.addTypeCaches(circular_countdown_timer.CountdownTextFormat);
+  dart.setLibraryUri(circular_countdown_timer.CountdownTextFormat, I[1]);
+  dart.defineLazy(circular_countdown_timer.CountdownTextFormat, {
+    /*circular_countdown_timer.CountdownTextFormat.HH_MM_SS*/get HH_MM_SS() {
+      return "HH:mm:ss";
+    },
+    /*circular_countdown_timer.CountdownTextFormat.MM_SS*/get MM_SS() {
+      return "mm:ss";
+    },
+    /*circular_countdown_timer.CountdownTextFormat.SS*/get SS() {
+      return "ss";
+    },
+    /*circular_countdown_timer.CountdownTextFormat.S*/get S() {
+      return "s";
+    }
+  }, false);
+  dart.trackLibraries("packages/circular_countdown_timer/circular_countdown_timer.dart", {
+    "package:circular_countdown_timer/circular_countdown_timer.dart": circular_countdown_timer
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["circular_countdown_timer.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../E:/packages/circular_countdown_timer/circular_countdown_timer.dart.lib.js"}');
+  // Exports:
+  return {
+    circular_countdown_timer: circular_countdown_timer
+  };
+}));
+
+//# sourceMappingURL=circular_countdown_timer.dart.lib.js.map

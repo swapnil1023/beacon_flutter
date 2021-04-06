@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/beacon_futter/BuildConfig.java
+ com.example.beacon_futter.BuildConfig

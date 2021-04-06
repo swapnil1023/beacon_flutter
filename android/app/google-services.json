@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "384739266546",
+    "project_id": "beaconflutter-fdd0a",
+    "storage_bucket": "beaconflutter-fdd0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384739266546:android:8581c7368ebb06a96fa56b",
+        "android_client_info": {
+          "package_name": "com.example.beacon_futter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384739266546-613cif0e9crgrsbi8k03el0nv5rrqk64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBScGZswFvGSEJrF__BweJboF2m6UoEH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384739266546-613cif0e9crgrsbi8k03el0nv5rrqk64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

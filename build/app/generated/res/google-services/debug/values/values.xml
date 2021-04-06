@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">384739266546-613cif0e9crgrsbi8k03el0nv5rrqk64.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">384739266546</string>
+    <string name="google_api_key" translatable="false">AIzaSyBBScGZswFvGSEJrF__BweJboF2m6UoEH8</string>
+    <string name="google_app_id" translatable="false">1:384739266546:android:8581c7368ebb06a96fa56b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBBScGZswFvGSEJrF__BweJboF2m6UoEH8</string>
+    <string name="google_storage_bucket" translatable="false">beaconflutter-fdd0a.appspot.com</string>
+    <string name="project_id" translatable="false">beaconflutter-fdd0a</string>
+</resources>
